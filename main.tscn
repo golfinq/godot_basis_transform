@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnvtjl034ba74"]
+
+[ext_resource type="Script" path="res://Object.gd" id="1_oh58r"]
+[ext_resource type="Script" path="res://RotateAxis.gd" id="2_0su07"]
+[ext_resource type="Script" path="res://Object2.gd" id="2_qi4kc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke1wb"]
+albedo_color = Color(1, 0, 0.0166664, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcms3"]
+albedo_color = Color(0.184314, 0.439216, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tx3h4"]
+font_size = 24
+
+[node name="main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0542531, 0, -0.998527, 0, 1, 0, 0.998527, 0, -0.0542531, -5.58566, 2.48067, 1.00249)
+fov = 65.5885
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.401916, 0, -0.915677, 0, 1, 0, 0.915677, 0, 0.401916, -3.67033, 0, 7.21306)
+
+[node name="RotateLock" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.22974)
+
+[node name="Object" type="CSGCylinder3D" parent="RotateLock"]
+transform = Transform3D(0.0168639, 0.747772, -0.663741, -0.822933, 0.387418, 0.415557, 0.567888, 0.539207, 0.6219, 0.480213, 1.20887, 0)
+script = ExtResource("1_oh58r")
+
+[node name="LockedAxis" type="CSGCylinder3D" parent="RotateLock"]
+transform = Transform3D(0.0129674, 0.999916, 0, -0.999916, 0.0129674, 0, 0, 0, 1, 0.900679, 1.09052, 0)
+radius = 0.118646
+height = 5.70788
+material = SubResource("StandardMaterial3D_ke1wb")
+
+[node name="RotateAxis" type="CSGCylinder3D" parent="RotateLock"]
+transform = Transform3D(-0.157919, -0.223864, -0.961741, -0.817145, 0.576432, 0, 0.554379, 0.785882, -0.273959, 0.900679, 1.09052, 0)
+radius = 0.118646
+height = 5.70788
+material = SubResource("StandardMaterial3D_xcms3")
+script = ExtResource("2_0su07")
+
+[node name="RotateFree" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.52255)
+
+[node name="Object" type="CSGCylinder3D" parent="RotateFree"]
+transform = Transform3D(0.0168639, 0.747772, -0.663741, -0.822933, 0.387418, 0.415557, 0.567888, 0.539207, 0.6219, 0.480213, 1.20887, 0)
+script = ExtResource("2_qi4kc")
+
+[node name="LockedAxis" type="CSGCylinder3D" parent="RotateFree"]
+transform = Transform3D(0.0129674, 0.999916, 0, -0.999916, 0.0129674, 0, 0, 0, 1, 0.900679, 1.09052, 0)
+radius = 0.118646
+height = 5.70788
+material = SubResource("StandardMaterial3D_ke1wb")
+
+[node name="RotateAxis" type="CSGCylinder3D" parent="RotateFree"]
+transform = Transform3D(-0.157834, -0.223719, -0.961789, -0.817115, 0.576475, 0, 0.554448, 0.785892, -0.273791, 0.900679, 1.09052, 0)
+radius = 0.118646
+height = 5.70788
+material = SubResource("StandardMaterial3D_xcms3")
+script = ExtResource("2_0su07")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Both Cylinders are treated as rotating around the Blue axis,
+but the left one is acting locked to rotating around the red axis only."
+label_settings = SubResource("LabelSettings_tx3h4")
