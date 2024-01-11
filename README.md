@@ -28,7 +28,7 @@ However we can still use the power of bra-ket notation to transform vectors betw
 
 because - as wikipedia puts it - of basic functional analysis. Therefore 
 ```math
-\sum_{i=0}^{n} |e_{i}\rangle\langle e_{i} |
+\sum_{i=1}^{n} |e_{i}\rangle\langle e_{i} |
 ```
 is the identity operator (or matrix if using a space where such things make sense). Anyway we are going to plug our vectors into this equation; we want our globaly defined vector $|g\rangle$ defined in our object's space whose basis vectors are $|o_{i}\rangle$. 
 
