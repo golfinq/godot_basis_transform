@@ -14,7 +14,7 @@ The actual math to make this work is pretty simple. We have two vectors/axes in 
 
 This is something which happens all the time in quantum mechanics, and represents a large portion of the math used in the beginning courses of quantum mechanics if starting out with bra-ket notation. Bra-ket notation makes these kinds of transformations really easy to wrangle. I highly recommend <ins>A Modern Approach to Quantum Mechanics</ins> by John S. Townsend for a textbook which takes this approach.
 
- This can also be justified using a geometric approach, as dot products are projections of one vector along another; but I perfer the explanation here.
+ This can also be justified using a geometric approach, as dot products are projections of one vector along another; but I prefer the explanation here.
 
 ### Explanation
 In bra-ket notation we have the "ket" $|v\rangle$, which is a vector, and the "bra" $\langle f |$, which is a functional which acts on a vector. Now, these definitions are a bit too broad for what we want to do, since they are defined in *any* abstract vector space that can exist. If we restrict ourselves to just finite-dimensional orthonormal vector spaces, these become just column and row vectors with $\langle f | v \rangle$ becoming the dot (or inner) product and $| v \rangle\langle f |$ becoming the outer product (or a matrix).
